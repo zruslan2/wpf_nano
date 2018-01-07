@@ -15,9 +15,11 @@
         <Label x:Name="label1" Content="" HorizontalAlignment="Left" Height="30" Margin="369,55,0,0" VerticalAlignment="Top" Width="374"/>
         <Button x:Name="button1" Content="Сумма всех чисел" HorizontalAlignment="Left" Height="32" Margin="204,100,0,0" VerticalAlignment="Top" Width="146" Click="button1_Click"/>
         <Label x:Name="label2" Content="" HorizontalAlignment="Left" Height="32" Margin="369,100,0,0" VerticalAlignment="Top" Width="374"/>
-        <Label x:Name="label3" Content="" HorizontalAlignment="Left" Height="29" Margin="369,234,0,0" VerticalAlignment="Top" Width="374"/>
+        <Label x:Name="label3" Content="" HorizontalAlignment="Left" Height="29" Margin="369,277,0,0" VerticalAlignment="Top" Width="374"/>
         <Button x:Name="button3" Content="Произведение всех чисел" HorizontalAlignment="Left" Height="31" Margin="204,148,0,0" VerticalAlignment="Top" Width="146" Click="button3_Click"/>
         <Label x:Name="label4" Content="" HorizontalAlignment="Left" Height="31" Margin="369,148,0,0" VerticalAlignment="Top" Width="374"/>
+        <Button x:Name="button4" Content="Вычесление Пи" HorizontalAlignment="Left" Height="31" Margin="204,199,0,0" VerticalAlignment="Top" Width="146" Click="button4_Click"/>
+        <Label x:Name="label5" Content="" HorizontalAlignment="Left" Height="31" Margin="369,199,0,0" VerticalAlignment="Top" Width="374"/>
 
 
     </Grid>

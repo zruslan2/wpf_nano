@@ -36,6 +36,7 @@ namespace WpfApplication1
         double[] vrem = new double[5];
         long sum=0;
         long proizv = 1;
+        double Pi = 3;
         int[] masp = new int[10000];
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -129,6 +130,27 @@ namespace WpfApplication1
             double nanoseconds = (ticks / Stopwatch.Frequency) * 1000000000;
             vrem[3] = Convert.ToUInt64(nanoseconds);
             label4.Content = "Произведение всех чисел массива посчиталась за " + Convert.ToUInt64(nanoseconds) + " наносекунд";
+            double sum1 = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                sum1 += vrem[i];
+            }
+            label3.Content = "Итого затраченное время " + sum1 + " нансекунд";
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            sw.Restart();
+            for (double i=2;i<=5000;i=i+4)
+            {
+                Pi = Pi+4d / (i * (i + 1) * (i + 2)) - 4d / ((i + 2) * (i + 3) * (i + 4));
+                textBox1.Text = Convert.ToString(Pi);
+            }
+            sw.Stop();
+            double ticks = sw.ElapsedTicks;
+            double nanoseconds = (ticks / Stopwatch.Frequency) * 1000000000;
+            vrem[4] = Convert.ToUInt64(nanoseconds);
+            label5.Content = "Вычесление Пи за " + Convert.ToUInt64(nanoseconds) + " наносекунд";
             double sum1 = 0;
             for (int i = 0; i < 5; i++)
             {
