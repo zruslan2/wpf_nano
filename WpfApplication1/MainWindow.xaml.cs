@@ -35,6 +35,8 @@ namespace WpfApplication1
         int[] mas = new int[10000];
         double[] vrem = new double[5];
         long sum=0;
+        long proizv = 1;
+        int[] masp = new int[10000];
         private void button_Click(object sender, RoutedEventArgs e)
         {
             using (StreamReader sr = File.OpenText(path))
@@ -47,8 +49,16 @@ namespace WpfApplication1
                 }
                 sr.Close();
                 sw.Stop();
-                vrem[0] = sw.ElapsedMilliseconds;
-                label.Content = "Файл открылся за " + sw.ElapsedMilliseconds + " миллисекунд";
+                double ticks = sw.ElapsedTicks;
+                double nanoseconds = (ticks / Stopwatch.Frequency) * 1000000000;
+                vrem[0] = Convert.ToUInt64(nanoseconds);
+                label.Content = "Файл открылся за " + Convert.ToUInt64(nanoseconds) + " миллисекунд";
+                double sum1 = 0;
+                for (int i = 0; i < 5; i++)
+                {
+                    sum1 += vrem[i];
+                }
+                label3.Content = "Итого затраченное время " + sum1 + " нансекунд";
             }
 
         }
@@ -73,8 +83,14 @@ namespace WpfApplication1
                 sw.Stop();
                 double ticks = sw.ElapsedTicks;
                 double nanoseconds = (ticks / Stopwatch.Frequency) * 1000000000;
-                vrem[1] = Convert.ToUInt32(nanoseconds);
-                label1.Content = "Массив загрузился за " + Convert.ToUInt32(nanoseconds) + " нансекунд";
+                vrem[1] = Convert.ToUInt64(nanoseconds);
+                label1.Content = "Массив загрузился за " + Convert.ToUInt64(nanoseconds) + " нансекунд";
+                double sum1 = 0;
+                for (int i = 0; i < 5; i++)
+                {
+                    sum1 += vrem[i];
+                }
+                label3.Content = "Итого затраченное время " + sum1 + " нансекунд";
             }
         }
 
@@ -89,20 +105,36 @@ namespace WpfApplication1
             sw.Stop();
             double ticks = sw.ElapsedTicks;
             double nanoseconds = (ticks / Stopwatch.Frequency) * 1000000000;
-            vrem[2] = Convert.ToUInt32(nanoseconds);
-            label2.Content = "Cумма всех чисел массива посчиталась за " + Convert.ToUInt32(nanoseconds) + " наносекунд";
-            label3.Content = "Итого затраченное время " + sum_vr();
+            vrem[2] = Convert.ToUInt64(nanoseconds);
+            label2.Content = "Cумма всех чисел массива посчиталась за " + Convert.ToUInt64(nanoseconds) + " наносекунд";
+            double sum1 = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                sum1 += vrem[i];
+            }
+            label3.Content = "Итого затраченное время " + sum1 + " нансекунд";
             
         }
-        private double sum_vr()
-        {
-            double sum = 0;
-            for(int i=0;i<=5;i++)
-            {
-                sum += vrem[i];
-            }
-            return sum;
-        }
 
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            sw.Restart();
+            for (int i = 0; i < 10000; i++)
+            {
+                masp[i] = mas[i] * 3;
+            }
+            textBox1.Text = Convert.ToString(proizv);
+            sw.Stop();
+            double ticks = sw.ElapsedTicks;
+            double nanoseconds = (ticks / Stopwatch.Frequency) * 1000000000;
+            vrem[3] = Convert.ToUInt64(nanoseconds);
+            label4.Content = "Произведение всех чисел массива посчиталась за " + Convert.ToUInt64(nanoseconds) + " наносекунд";
+            double sum1 = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                sum1 += vrem[i];
+            }
+            label3.Content = "Итого затраченное время " + sum1 + " нансекунд";
+        }
     }
 }
