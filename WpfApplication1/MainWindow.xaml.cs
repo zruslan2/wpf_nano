@@ -141,6 +141,7 @@ namespace WpfApplication1
         private void button4_Click(object sender, RoutedEventArgs e)
         {
             sw.Restart();
+            // ряд Нилаканта
             for (double i=2;i<=5000;i=i+4)
             {
                 Pi = Pi+4d / (i * (i + 1) * (i + 2)) - 4d / ((i + 2) * (i + 3) * (i + 4));
